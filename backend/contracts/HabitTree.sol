@@ -2,11 +2,11 @@
 pragma solidity ^0.8.24;
 
 import {FHE, euint32, externalEuint32, ebool} from "@fhevm/solidity/lib/FHE.sol";
-import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
+import {ZamaEthereumConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 
 /// @title HabitTree - Encrypted Habit Tracking DApp
 /// @notice A privacy-preserving habit tracking system using FHEVM
-contract HabitTree is SepoliaConfig {
+contract HabitTree is ZamaEthereumConfig {
     // Struct to store habit information
     struct Habit {
         uint256 id;

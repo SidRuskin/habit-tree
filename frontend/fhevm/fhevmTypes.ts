@@ -1,9 +1,11 @@
 import type { FhevmInstance } from "@zama-fhe/relayer-sdk/bundle";
 import type { FhevmInstanceConfig } from "@zama-fhe/relayer-sdk/web";
 import type { HandleContractPair } from "@zama-fhe/relayer-sdk/bundle";
-import type { DecryptedResults } from "@zama-fhe/relayer-sdk/bundle";
+import type { UserDecryptResults } from "@zama-fhe/relayer-sdk/bundle";
 
-export type { FhevmInstance, FhevmInstanceConfig, HandleContractPair, DecryptedResults };
+export type { FhevmInstance, FhevmInstanceConfig, HandleContractPair };
+export type { UserDecryptResults };
+export type DecryptedResults = UserDecryptResults;
 
 export type FhevmDecryptionSignatureType = {
   publicKey: string;
@@ -38,6 +40,11 @@ export type FhevmRelayerSDKType = {
   initSDK: (options?: unknown) => Promise<boolean>;
   createInstance: (config: FhevmInstanceConfig) => Promise<FhevmInstance>;
   SepoliaConfig: {
+    aclContractAddress: string;
+    inputVerifierContractAddress: string;
+    kmsVerifierContractAddress: string;
+  };
+  ZamaEthereumConfig?: {
     aclContractAddress: string;
     inputVerifierContractAddress: string;
     kmsVerifierContractAddress: string;
